@@ -1,9 +1,7 @@
+
 package de.example.clientgui;
 
-
-
-import net.minecraft.util.Identifier;
-
+import net.minecraft.resources.Identifier;
 import com.mojang.blaze3d.platform.InputConstants;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
@@ -12,16 +10,25 @@ import net.minecraft.client.KeyMapping;
 import org.lwjgl.glfw.GLFW;
 
 public class ClientGuiMod implements ClientModInitializer {
-    private static final KeyMapping.Category CATEGORY = KeyMapping.Category.register(
-            
-Identifier.of("clientgui", "general")
 
+    private static final KeyMapping.Category CATEGORY =
+            KeyMapping.Category.register(
+                    Identifier.fromNamespaceAndPath("clientgui", "general")
+            );
 
     @Override
     public void onInitializeClient() {
         AuroraConfig.load();
-        KeyMapping openGui = KeyBindingHelper.registerKeyBinding(new KeyMapping(
-                "key.clientgui.open", InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_RIGHT_SHIFT, CATEGORY));
+
+        KeyMapping openGui = KeyBindingHelper.registerKeyBinding(
+                new KeyMapping(
+                        "key.clientgui.open",
+                        InputConstants.Type.KEYSYM,
+                        GLFW.GLFW_KEY_RIGHT_SHIFT,
+                        CATEGORY
+                )
+        );
+
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             while (openGui.consumeClick()) {
                 client.setScreen(new ClientGuiScreen());
