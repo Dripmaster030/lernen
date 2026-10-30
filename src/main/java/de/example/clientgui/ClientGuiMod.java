@@ -1,18 +1,21 @@
 package de.example.clientgui;
 
 
-import net.minecraft.resources.ResourceLocation;
+
+import net.minecraft.util.Identifier;
+
 import com.mojang.blaze3d.platform.InputConstants;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.minecraft.client.KeyMapping;
-import net.minecraft.resources.ResourceLocation;
 import org.lwjgl.glfw.GLFW;
 
 public class ClientGuiMod implements ClientModInitializer {
     private static final KeyMapping.Category CATEGORY = KeyMapping.Category.register(
-            ResourceLocation.fromNamespaceAndPath("clientgui", "general"));
+            
+Identifier.of("clientgui", "general")
+
 
     @Override
     public void onInitializeClient() {
