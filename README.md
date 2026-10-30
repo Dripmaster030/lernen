@@ -1,19 +1,24 @@
-# Aurora Client GUI — Java 1.21.11 / Fabric
+# Aurora Client v2 — Minecraft Java 1.21.11 / Fabric
 
-Ein rein clientseitiges, modernes Minecraft GUI mit **rechter Shift Taste** zu öffnen.
+**Status: Quellcode, nicht kompiliert oder im Spiel getestet.**
 
-## Enthalten
-* Dunkles Menü mit Seitenleiste, Visuals, HUD, Movement und **Settings**.
-* In **Settings** fünf Farbvoreinstellungen sowie eigene RGB Anpassung in Zehnerschritten.
-* Farbe wird automatisch in `config/aurora-client.properties` gespeichert.
-* Die übrigen Modulschalter sind **nur Demo** und haben noch keine Gameplay Funktion.
+## Neu
+- Transparente Panels mit Drag and Drop an der Titelleiste
+- Ein und ausklappbar über + / −
+- Settings unten mittig mit RGB Farbwahl
+- Pro Modul Klick auf KEY zum Belegen, Backspace/Delete zum Löschen
+- Persistenz in config/aurora-client.properties
+- Experimentelle Fullbright Funktion (Gamma per Reflection; kann abhängig von Minecraft 1.21.11 nicht greifen)
 
-## Als Modrinth Mod bauen
-1. Java JDK 21 und Gradle installieren und das ZIP entpacken.
-2. Projekt als Gradle Projekt in IntelliJ öffnen (oder Terminal im entpackten Projekt).
-3. `gradle build` ausführen. Die Abhängigkeiten werden dabei heruntergeladen.
-4. Die erzeugte normale JAR aus `build/libs` in Modrinth App → dein Profil → Ordner öffnen → `mods` kopieren.
-5. Für das Profil **Fabric 1.21.11** auswählen, Fabric API für 1.21.11 installieren und Minecraft starten.
-6. **Rechte Shift Taste** zum Öffnen drücken.
+## Einschränkungen
+**Custom Glint:** Die Option und ihr Keybind sind vorbereitet, aber die Änderung des tatsächlichen Vanilla Verzauberungsglanzes ist noch nicht implementiert.
+**Inspect Item:** Die Option und ihr Keybind sind vorbereitet, die Item Animation noch nicht implementiert.
+**Fullbright:** Experimentelle Version, kann funktionieren oder je nach der verfügbaren Gamma API wirkungslos bleiben.
 
-**Wichtig:** Dies ist Quellcode, keine fertig kompilierte JAR. Die Kompilierung konnte in dieser Umgebung ohne Gradle und Internetzugriff nicht durchgeführt werden, daher ist Laufzeitkompatibilität noch nicht verifiziert.
+Das ist bewusst dokumentiert, damit keine leeren Schalter als fertige Funktionen verkauft werden.
+
+## GitHub
+Lade die Inhalte dieses Ordners direkt in die oberste Ebene deines Repositories hoch.
+Die Workflow Datei ist `.github/workflows/build.yml`.
+Dann unter Actions den Build ausführen.
+Bei einem Compilerfehler bitte die gesamte Fehlermeldung schicken.
