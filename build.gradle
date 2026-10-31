@@ -1,7 +1,7 @@
 plugins {
     id 'net.fabricmc.fabric-loom-remap' version '1.14-SNAPSHOT'
 }
-version = '2.0.0'
+version = '2.1.0'
 group = 'de.example'
 base { archivesName = 'clientgui' }
 repositories { mavenCentral() }
